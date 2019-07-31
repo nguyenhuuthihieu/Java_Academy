@@ -13,8 +13,8 @@ import java.io.InputStreamReader;
  *
  * @author NguyenHieu
  */
-public class Bai14 {
-    public boolean KiemTraChu(char c)
+public class Bai14_String {
+    public boolean kiemTraChu(char c)
     {
         if((c >= 'a' && c <= 'z') || 
                 c >= 'A' && c <= 'Z')
@@ -26,13 +26,13 @@ public class Bai14 {
             return false;
         }
     }
-    public void ChuyenDoiTen(String str)
+    public void chuyenDoiTen(String str)
     {
         String ten , hodem;
         int index = 0;
         for (int i = str.length() - 1; i >= 0; i --)
         {
-            if(str.charAt(i - 1) == ' ' && KiemTraChu(str.charAt(i)))
+            if(str.charAt(i - 1) == ' ' && kiemTraChu(str.charAt(i)))
             {
                 index = i;
                 break;
@@ -47,7 +47,7 @@ public class Bai14 {
         BufferedReader inStream = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Nhap chuoi : ");
         String str = inStream.readLine();
-        Bai14 test = new Bai14();
-        test.ChuyenDoiTen(str);
+        Bai14_String test = new Bai14_String();
+        test.chuyenDoiTen(str);
     }
 }

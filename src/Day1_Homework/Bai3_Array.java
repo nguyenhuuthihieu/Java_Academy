@@ -13,33 +13,39 @@ import java.io.InputStreamReader;
  *
  * @author NguyenHieu
  */
-public class Bai5 {
-    public void PhanTuDautien( float arr[], float x)
+public class Bai3_Array {
+    public void tichSoDuong(double  array[])
     {
-        for ( int i = 1; i < arr.length; i ++ )
+        double tich = 1;
+        int count = 0;
+        for ( int i = 0; i < array.length; i ++ )
         {
-            if( arr[i] == x )
+            if ( array[i] > 0 )
             {
-                System.out.println("Vi tri phan tu dau tien co gia tri bang " + x + " la: " + (i+1));
-                return;
+                tich *= array[i];
+                count ++;
             }
         }
-        System.out.println("-1");
+        if ( count > 0 )
+        {
+            System.out.println("Tich cac gia tri duong cua mang la : " + tich);
+        }
+        else
+        {
+            System.out.println("Khong co phan tu duong nao");
+        }
     }
     public static void main (String[] args) throws IOException
     {
+        double array[] = new double[10];
         BufferedReader inStream = new BufferedReader(new InputStreamReader(System.in));
-        System.out.print("Nhap so phan tu trong day : ");
-        String siNum = inStream.readLine();
-        int n = Integer.parseInt(siNum);
-        float array[] = new float[n];
-        for ( int i = 0; i < n; i ++ )
+        for ( int i = 0; i < 10; i ++ )
         {
             System.out.println("Nhap mot so nguyen thu "+ (i+1) + " : ");
             String siNumber = inStream.readLine();
-            array[i] = Float.parseFloat(siNumber);
+            array[i] = Double.parseDouble(siNumber);
         }
-        Bai5 test = new Bai5();
-        test.PhanTuDautien(array,(float) 3.50);
+        Bai3_Array test = new Bai3_Array();
+        test.tichSoDuong(array);
     }
 }

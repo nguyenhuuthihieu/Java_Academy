@@ -13,7 +13,7 @@ import java.io.InputStreamReader;
  *
  * @author NguyenHieu
  */
-public class Bai11 {
+public class Bai11_String {
     public static void main (String[] args) throws IOException
     {
         BufferedReader inStream = new BufferedReader(new InputStreamReader(System.in));

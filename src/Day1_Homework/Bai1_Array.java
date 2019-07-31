@@ -13,8 +13,8 @@ import java.io.InputStreamReader;
  *
  * @author NguyenHieu
  */
-public class Bai1 {
-    public void TrungBinhCong(double  array[])
+public class Bai1_Array {
+    public void trungBinhCong(double  array[])
     {
         double sum = 0;
         int count = 0;
@@ -39,7 +39,7 @@ public class Bai1 {
             String siNumber = inStream.readLine();
             array[i] = Double.parseDouble(siNumber);
         }
-        Bai1 test = new Bai1();
-        test.TrungBinhCong(array);
+        Bai1_Array test = new Bai1_Array();
+        test.trungBinhCong(array);
     }
 }

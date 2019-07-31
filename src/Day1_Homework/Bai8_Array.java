@@ -13,27 +13,25 @@ import java.io.InputStreamReader;
  *
  * @author NguyenHieu
  */
-public class Bai7 {
-    public static void SoLanXuatHien( float arr[])
+public class Bai8_Array {
+    public void sapXepTangDan ( float arr[])
     {
-        int check[] = new int[arr.length];
-        for ( int i = 1; i < arr.length; i ++ )
+        for( int i = 1; i < arr.length; i ++ )
         {
-            int count = 0;
             for ( int j = 0; j < i; j ++ )
             {
-                if ( arr[i] == arr[j] )
+                if( arr[i] < arr[j])
                 {
-                    count ++;
-                    check[j] ++;
-                    check[i] = check[j];
+                    float a = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = a;
                 }
             }
         }
-        System.out.print("So lan xuat hien cua cac phan tu lan luot la: ");
+        System.out.println("Mang sau khi sap xep tang dan : ");
         for (int i = 0; i < arr.length; i ++)
         {
-            System.out.println(check[i] + ", ");
+            System.out.print( arr[i] + ", ");
         }
     }
     public static void main (String[] args) throws IOException
@@ -49,6 +47,7 @@ public class Bai7 {
             String siNumber = inStream.readLine();
             array[i] = Float.parseFloat(siNumber);
         }
-        SoLanXuatHien(array);
+        Bai8_Array test = new Bai8_Array();
+        test.sapXepTangDan(array);
     }
 }

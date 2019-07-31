@@ -13,8 +13,8 @@ import java.io.InputStreamReader;
  *
  * @author NguyenHieu
  */
-public class Bai10 {
-    public boolean KiemTraChu(char c)
+public class Bai10_String {
+    public boolean kiemTraChu(char c)
     {
         if((c >= 'a' && c <= 'z') || 
                 c >= 'A' && c <= 'Z')
@@ -26,16 +26,16 @@ public class Bai10 {
             return false;
         }
     }
-    public void DemSoTu(String str)
+    public void demSoTu(String str)
     {
         int count = 0;
-        if(KiemTraChu(str.charAt(0)))
+        if(kiemTraChu(str.charAt(0)))
         {
             count ++;
         }
         for (int i = 1; i < str.length(); i ++)
         {
-            if(str.charAt(i-1) == ' ' && KiemTraChu(str.charAt(i)))
+            if(str.charAt(i-1) == ' ' && kiemTraChu(str.charAt(i)))
             {
                 count ++;
             }
@@ -47,7 +47,7 @@ public class Bai10 {
         BufferedReader inStream = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Nhap chuoi : ");
         String str = inStream.readLine();
-        Bai10 test = new Bai10();
-        test.DemSoTu(str);
+        Bai10_String test = new Bai10_String();
+        test.demSoTu(str);
     }
 }

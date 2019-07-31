@@ -13,8 +13,8 @@ import java.io.InputStreamReader;
  *
  * @author NguyenHieu
  */
-public class Bai6 {
-    public static void PhanTuXuatHien2Lan( float arr[])
+public class Bai6_Array {
+    public static void phanTuXuatHien2Lan( float arr[])
     {
         int check[] = new int[arr.length];
         boolean check2[] = new boolean[arr.length];
@@ -54,6 +54,6 @@ public class Bai6 {
             String siNumber = inStream.readLine();
             array[i] = Float.parseFloat(siNumber);
         }
-        PhanTuXuatHien2Lan(array);
+        phanTuXuatHien2Lan(array);
     }
 }

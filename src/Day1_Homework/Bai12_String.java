@@ -14,8 +14,8 @@ import java.util.Locale;
  *
  * @author NguyenHieu
  */
-public class Bai12 {
-    public boolean KiemTraChu(char c)
+public class Bai12_String {
+    public boolean kiemTraChu(char c)
     {
         if((c >= 'a' && c <= 'z') || 
                 c >= 'A' && c <= 'Z')
@@ -28,22 +28,22 @@ public class Bai12 {
         }
     }
 
-    public void ChuanHoaChuoi(String str)
+    public void chuanHoaChuoi(String str)
     {
         str = str.trim();
         str = str.replaceAll("\\s+", " ");
         StringBuffer sb=new StringBuffer(str);
         for(int i = 0; i < str.length(); i ++)
         {
-            if(KiemTraChu(sb.charAt(0)))
+            if(kiemTraChu(sb.charAt(0)))
             {
                 sb.setCharAt(i, Character.toUpperCase(sb.charAt(i)));
             }
-            if (i > 0 && KiemTraChu(sb.charAt(i)) && str.charAt(i-1) == ' ')
+            if (i > 0 && kiemTraChu(sb.charAt(i)) && str.charAt(i-1) == ' ')
             {
                 sb.setCharAt(i, Character.toUpperCase(sb.charAt(i)));
             }
-            if (i > 0 && KiemTraChu(sb.charAt(i)) && str.charAt(i-1) != ' ')
+            if (i > 0 && kiemTraChu(sb.charAt(i)) && str.charAt(i-1) != ' ')
             {
                sb.setCharAt(i, Character.toLowerCase(sb.charAt(i)));
             }
@@ -55,7 +55,7 @@ public class Bai12 {
         BufferedReader inStream = new BufferedReader(new InputStreamReader(System.in));
         System.out.print("Nhap chuoi : ");
         String str = inStream.readLine();
-        Bai12 test = new Bai12();
-        test.ChuanHoaChuoi(str);
+        Bai12_String test = new Bai12_String();
+        test.chuanHoaChuoi(str);
     }
 }

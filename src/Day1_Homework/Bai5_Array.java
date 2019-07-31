@@ -13,29 +13,18 @@ import java.io.InputStreamReader;
  *
  * @author NguyenHieu
  */
-public class Bai4 {
-    public static void PhanTuXuatHien1Lan( float arr[])
+public class Bai5_Array {
+    public void phanTuDautien( float arr[], float x)
     {
-        boolean check[] = new boolean[arr.length];
         for ( int i = 1; i < arr.length; i ++ )
         {
-            for ( int j = 0; j < i; j ++ )
+            if( arr[i] == x )
             {
-                if ( arr[i] == arr[j] )
-                {
-                    check[j] = true;
-                    check[i] = true;
-                }
+                System.out.println("Vi tri phan tu dau tien co gia tri bang " + x + " la: " + (i+1));
+                return;
             }
         }
-        System.out.print("Cac phan tu xuat hien mot lan la: ");
-        for (int i = 0; i < arr.length; i ++)
-        {
-            if (check[i] == false)
-            {
-                System.out.print( arr[i] + ", ");
-            }
-        }
+        System.out.println("-1");
     }
     public static void main (String[] args) throws IOException
     {
@@ -50,6 +39,7 @@ public class Bai4 {
             String siNumber = inStream.readLine();
             array[i] = Float.parseFloat(siNumber);
         }
-        PhanTuXuatHien1Lan(array);
+        Bai5_Array test = new Bai5_Array();
+        test.phanTuDautien(array,(float) 3.50);
     }
 }

@@ -5,7 +5,6 @@
  */
 package Day1_Homework;
 
-import static Day1_Homework.Bai7.SoLanXuatHien;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -14,25 +13,28 @@ import java.io.InputStreamReader;
  *
  * @author NguyenHieu
  */
-public class Bai8 {
-    public void SapXepTangDan ( float arr[])
+public class Bai4_Array {
+    public static void phanTuXuatHien1Lan( float arr[])
     {
-        for( int i = 1; i < arr.length; i ++ )
+        boolean check[] = new boolean[arr.length];
+        for ( int i = 1; i < arr.length; i ++ )
         {
             for ( int j = 0; j < i; j ++ )
             {
-                if( arr[i] < arr[j])
+                if ( arr[i] == arr[j] )
                 {
-                    float a = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = a;
+                    check[j] = true;
+                    check[i] = true;
                 }
             }
         }
-        System.out.println("Mang sau khi sap xep tang dan : ");
+        System.out.print("Cac phan tu xuat hien mot lan la: ");
         for (int i = 0; i < arr.length; i ++)
         {
-            System.out.print( arr[i] + ", ");
+            if (check[i] == false)
+            {
+                System.out.print( arr[i] + ", ");
+            }
         }
     }
     public static void main (String[] args) throws IOException
@@ -48,7 +50,6 @@ public class Bai8 {
             String siNumber = inStream.readLine();
             array[i] = Float.parseFloat(siNumber);
         }
-        Bai8 test = new Bai8();
-        test.SapXepTangDan(array);
+        phanTuXuatHien1Lan(array);
     }
 }

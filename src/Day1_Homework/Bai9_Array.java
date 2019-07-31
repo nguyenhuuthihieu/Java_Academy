@@ -14,8 +14,8 @@ import static java.lang.Math.sqrt;
  *
  * @author NguyenHieu
  */
-public class Bai9 {
-    public void MaxMatric (int arr[][])
+public class Bai9_Array {
+    public void maxMatric (int arr[][])
     {
         int max = arr[0][0];
         int indexRow = 1, indexCol = 1;
@@ -34,7 +34,7 @@ public class Bai9 {
         System.out.println("Gia tri lon nhat la : " + max + " tai dong " + indexRow + " cot " + indexCol);
     }
     
-    public boolean KiemTraSoNguyenTo (int x)
+    public boolean kiemTraSoNguyenTo (int x)
     {
         if(x == 1){
             return false;
@@ -56,14 +56,14 @@ public class Bai9 {
         }
     }
     
-    public void TimSoNguyenTo(int arr[][])
+    public void timSoNguyenTo(int arr[][])
     {
         System.out.println("Cac so nguyen to trong ma tran");
         for (int i = 0; i < arr.length; i ++)
         {
             for (int j = 0; j < arr[i].length; j ++)
             {
-                if(KiemTraSoNguyenTo(arr[i][j]))
+                if(kiemTraSoNguyenTo(arr[i][j]))
                 {
                     System.out.print(arr[i][j] + ", ");
                 }
@@ -71,7 +71,7 @@ public class Bai9 {
         }
     }
     
-    public void SapXepTangDan(int arr[][], int col)
+    public void sapXepTangDan(int arr[][], int col)
     {
         System.out.println("Ma tran truoc khi sap xep tang dan theo cot");
         for (int i = 0; i < arr.length; i ++)
@@ -138,9 +138,9 @@ public class Bai9 {
             }
            
         }
-        Bai9 test = new Bai9();
-        test.MaxMatric(array);
-        test.SapXepTangDan(array, col);
-        test.TimSoNguyenTo(array);
+        Bai9_Array test = new Bai9_Array();
+        test.maxMatric(array);
+        test.sapXepTangDan(array, col);
+        test.timSoNguyenTo(array);
     }
 }
