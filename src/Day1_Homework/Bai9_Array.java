@@ -18,20 +18,54 @@ public class Bai9_Array {
     public void maxMatric (int arr[][])
     {
         int max = arr[0][0];
-        int indexRow = 1, indexCol = 1;
-        for ( int i = 0; i < arr.length; i ++ )
+        int tmp[][] = new int[arr.length*arr[0].length][2];
+        int cols[] = new int[arr[0].length]; 
+        int colMax[] = new int[arr[0].length]; 
+        int count = 0, countCol = 0;
+        int index = 0;
+        int maxOld = arr[0][0];
+        for ( int i = 0; i < arr[0].length; i ++ )
         {
-            for (int j = 0; j < arr[i].length; j ++)
+            index = 0;
+            int c = 0;
+            for (int j = 0; j < arr.length; j ++)
             {
-                if(arr[i][j] > max)
+                if(arr[j][i] > max)
                 {
+                    index = 0;
+                    tmp[index][0] = i;
+                    tmp[index][1] = j;
                     max = arr[j][i];
-                    indexRow = i+1;
-                    indexCol = j+1;
-                }
+                    c = 0;
+                    index++;
+                }else if(arr[j][i] == max){
+                    tmp[index][0] = i;
+                    tmp[index][1] = j;
+                    c++;
+                    index++;
+                } 
+            }
+            if(max > maxOld){
+                countCol = 0;
+                cols[countCol] = i;
+                colMax[countCol] = index;
+                maxOld = max;
+                countCol ++;
+            }else if(max == maxOld){
+                cols[countCol] = i;
+                colMax[countCol] = index;
+                maxOld = max;
+                countCol ++;
             }
         }
-        System.out.println("Gia tri lon nhat la : " + max + " tai dong " + indexRow + " cot " + indexCol);
+        System.out.println("Max: " +max +" tai dong va cot tuong ung");
+        for (int j = 0; j < countCol; j ++)
+        {
+            System.out.print("{"+cols[j]+" ,"+colMax[j] + "} ,");
+        }
+        System.out.println("");
+        
+        
     }
     
     public boolean kiemTraSoNguyenTo (int x)
@@ -109,38 +143,10 @@ public class Bai9_Array {
     }
     public static void main (String[] args) throws IOException
     {
-        BufferedReader inStream = new BufferedReader(new InputStreamReader(System.in));
-        int row, col;
-        do{
-            System.out.print("Nhap so dong : ");
-            String siRow = inStream.readLine();
-            row = Integer.parseInt(siRow);
-        }
-        while(row < 0);
-        do{
-            System.out.print("Nhap so cot : ");
-            String siCol = inStream.readLine();
-            col = Integer.parseInt(siCol);
-        }
-        while( col < 0 );
-        int array[][] = new int[row][col];
-        for ( int i = 0; i < row; i ++ )
-        {
-            System.out.println("Nhap phan tu dong thu "+ (i+1) + " : ");
-            for( int j = 0; j < col; j ++ )
-            {
-                do{
-                    System.out.print("Nhap phan tu thu " + (j+1) + " : ");
-                    String siNumber = inStream.readLine();
-                    array[i][j] = Integer.parseInt(siNumber);        
-                }
-                while (array[i][j] <= 0 || array[i][j] >= 100);
-            }
-           
-        }
+        int t[][] = {{20,10,9,4,7,2,3},{20,10,9,4,7,2,3},{20,10,9,4,7,20,3}};
         Bai9_Array test = new Bai9_Array();
-        test.maxMatric(array);
-        test.sapXepTangDan(array, col);
-        test.timSoNguyenTo(array);
+        test.maxMatric(t);
+        test.sapXepTangDan(t, 2);
+        test.timSoNguyenTo(t);
     }
 }
